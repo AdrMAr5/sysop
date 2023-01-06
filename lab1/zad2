@@ -1,0 +1,23 @@
+#!/bin/sh
+max_guess=2
+if (($2<$1));
+then
+    echo min is larger than max. change numbers
+    exit 1
+fi
+range=$(($2-$1+1))
+rand=$(($RANDOM % $range + $1))
+echo $rand
+read -p "podaj swoją liczbę: " guess
+
+while [ $guess -ne $rand ]
+do
+    echo nie udało ci się zgadnąć
+    if [ $max_guess -le 1 ];
+    then
+        exit 1
+    fi
+    read -p "spróbuj ponownie: " guess
+    ((max_guess=max_guess-1))
+done
+echo zgadłeś!!
