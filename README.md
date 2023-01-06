@@ -1,0 +1,2 @@
+# sysop
+systemy operacyjne AGH
