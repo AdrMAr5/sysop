@@ -3,13 +3,26 @@
 #include<unistd.h>
 
 using namespace std;
-int counter = 0;
 int main(){
-    
-    while (1){
-        fork();
-        counter++;
-        printf("%d\n\n\n\n\n\n", counter);
+    long int ctr = 1;
+	pid_t pid;
+
+	while (1) {
+		pid = fork();
+		
+		if (pid == 0) {
+			while (1)
+				sleep(1);
+				
+		} else if (pid > 0) {
+			ctr += 1;
+			printf("procesy: %ld\n", ctr);
+	
+		} else {
+			printf("fork fail\tprocesy: %ld\n", ctr);
+			sleep(1);
+		}
     }
+	usleep(1000);
     return 0;
 }

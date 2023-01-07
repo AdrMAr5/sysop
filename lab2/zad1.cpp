@@ -24,8 +24,8 @@ int main(){
     else{
         /*parent will wait for the child to complete*/
         // wait(NULL);
-        // getchar();
-        printf("%ld\t%ld\n", (long)getpid(), (long)getppid());
+        getchar();
+        printf("%ld\t%ld\n", (long)pid, (long)getpid());
         printf("child complete\n");
     }
 
